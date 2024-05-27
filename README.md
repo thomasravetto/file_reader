@@ -26,7 +26,7 @@ npm install
 
 1. Compile Typescript project:
 ```sh
-npm start
+npm run compile
 ```
 
 2. Start application:
