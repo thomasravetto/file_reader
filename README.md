@@ -35,3 +35,16 @@ npm start
 ```
 
 3. When prompted, input file path or URL.
+
+## Test
+
+To execute unit tests:
+```sh
+npm test
+```
+
+## Project structure
+
+- src/ - Contains source code.
+- dist/ - Contains compiled JS code.
+- tests/ - Contains unit tests.
