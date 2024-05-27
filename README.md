@@ -13,7 +13,7 @@ This Node.js application reads a file from a path or an URL given by the user, c
 
 1. Clone repository:
 ```sh
-git clone
+git clone https://github.com/thomasravetto/file_reader.git
 cd file_reader
 ```
 
