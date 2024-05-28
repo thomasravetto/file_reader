@@ -2,7 +2,7 @@
 
 ## Description
 
-This Node.js application reads a file from a path or an URL given by the user, counts the number of words contained in the file and detect words that are repeated more than 10 times.
+This Node.js application reads a file from a path or an URL given by the user, counts the number of words, letters and spaces contained in the file and detect words that are repeated more than 10 times.
 
 ## Requirements
 
