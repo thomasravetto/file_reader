@@ -47,4 +47,8 @@ npm test
 
 - src/ - Contains source code.
 - dist/ - Contains compiled JS code.
-- tests/ - Contains unit tests.
+- dist/tests/ - Contains unit tests.
+
+## Design pattern
+
+The application uses the Singleton pattern for the FileReader class and the Factory pattern for the TextAnalyser class.

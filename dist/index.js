@@ -13,15 +13,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fileReader_1 = __importDefault(require("./fileReader"));
-const wordCounter_1 = __importDefault(require("./wordCounter"));
+const textAnalyserFactory_1 = __importDefault(require("./textAnalyserFactory"));
 const readline_1 = __importDefault(require("readline"));
 const rl = readline_1.default.createInterface(process.stdin, process.stdout);
 rl.question("Enter the file path or URL\n", (path) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const fileContent = yield fileReader_1.default.readFile(path);
-        const wordCounter = new wordCounter_1.default(fileContent);
-        console.log(`Total number of words is ${wordCounter.countWords()}`);
-        const frequentWords = wordCounter.frequentWords(10);
+        const fileContent = yield fileReader_1.default.getInstance().readFile(path);
+        const textAnalyser = textAnalyserFactory_1.default.createTextAnalyser(fileContent);
+        console.log(`Total number of words is ${textAnalyser.countWords()}`);
+        console.log(`Total number of letters is ${textAnalyser.countLetters()}`);
+        // since in most phrases there are no digits, the log of numbers count is conditional.
+        const digitNumber = textAnalyser.countDigits();
+        if (digitNumber > 0) {
+            console.log(`Total number of numerical characters is ${digitNumber}`);
+        }
+        console.log(`Total number of spaces is ${textAnalyser.countSpaces()}`);
+        const frequentWords = textAnalyser.frequentWords(10);
         if (Object.keys(frequentWords).length > 0) {
             console.log('Words that appear more than 10 times: ', frequentWords);
         }

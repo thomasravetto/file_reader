@@ -9,6 +9,20 @@ class WordCounter {
         return this.text.split(/\s+/).length;
     }
 
+    // this method just counts letters, commas and dots are not counted in the total
+    public countLetters(): number {
+        return (this.text.match(/[a-z]/gi) || []).length;
+    }
+
+    // counts numbers
+    public countDigits(): number {
+        return (this.text.match(/\d/g) || []).length;
+    }
+
+    public countSpaces (): number {
+        return this.text.split(/\s+/).length - 1;
+    }
+
     public frequentWords (threshold: number): Record<string, number> {
         const words = this.text.toLowerCase().match(/\b\w+\b/g) || [];
 
@@ -18,7 +32,7 @@ class WordCounter {
             wordsMap[word] = (wordsMap[word] || 0) + 1;
         });
 
-        return Object.fromEntries(Object.entries(wordsMap).filter(([_, count]) => count > threshold));
+        return Object.fromEntries(Object.entries(wordsMap).filter(([_, count]) => count >= threshold));
     }
 }
 
